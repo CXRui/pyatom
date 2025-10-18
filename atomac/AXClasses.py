@@ -668,7 +668,7 @@ class BaseAXUIElement(_a11y.AXUIElement):
             target = self
         try:
             children = target.AXChildren
-        except _a11y.Error:
+        except Exception:
             return
         if children:
             for child in children:
@@ -689,7 +689,7 @@ class BaseAXUIElement(_a11y.AXUIElement):
         for k in kwargs.keys():
             try:
                 val = getattr(self, k)
-            except _a11y.Error:
+            except Exception:
                 return False
             # Not all values may be strings (e.g. size, position)
             if isinstance(val, str):
